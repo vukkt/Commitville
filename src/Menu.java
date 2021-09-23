@@ -1,7 +1,8 @@
 import java.util.Scanner;
 
 public class Menu {
-	boolean exit;
+	boolean exit = false;
+	int[] array = new int[10];
 
 	public static void main(String[] args) {
 		Menu menu = new Menu();
@@ -23,6 +24,7 @@ public class Menu {
 		System.out.println("3) Calculate Maximum element in array ");
 		System.out.println("4) Calculate Sum of elements in array ");
 		System.out.println("5) Calculate Average value from elements in array ");
+		System.out.println("6) Calculate Average value from elements in array ");
 	}
 
 	private void printHeader() {
@@ -52,40 +54,35 @@ public class Menu {
 	private void performAction(int choice) {
 
 		int elements;
-		int[] array = new int[10];
+
 		Scanner sc = new Scanner(System.in);
 		int i = 0;
+		
+		System.out.println("Enter the number of elements ");
+		elements = sc.nextInt();
+
+		System.out.println("Enter the elements of the array: ");
+		while (i < elements) { // for (int i = 0; i < elements; i++) { this is for loop equivalent to used
+		i++;
+		array[i] = sc.nextInt();
+		
 		switch (choice) {
 
 		case 1:
 
-			System.out.println("Enter the number of elements ");
-			elements = sc.nextInt();
-
-			System.out.println("Enter the elements of the array: ");
-			while (i < elements) {
-				i++;
-				// for (int i = 0; i < elements; i++) { this is for loop equivalent to used
-				// while
-				array[i] = sc.nextInt();
-			}
-
-			break;
-		case 2:
-
-			int minValue = array[0];
-			for (int k = 0; k < array.length; k++) {
-				if (array[k] > minValue) {
-					minValue = array[k];
+			int minValue = array[i];
+			for (int i = 0; i < array.length; i++) {
+				if (array[i] > minValue) {
+					minValue = array[i];
 				}
 			}
 			System.out.println("Min value is " + minValue);
 			break;
-		case 3:
-			int maxValue = array[0];
-			for (int j = 0; j < array.length; j++) {
-				if (array[j] > maxValue) {
-					maxValue = array[j];
+		case 2:
+			int maxValue = array[i];
+			for (int i = 0; i < array.length; i++) {
+				if (array[i] > maxValue) {
+					maxValue = array[i];
 				}
 			}
 			System.out.println("Max value is " + maxValue);
@@ -95,6 +92,9 @@ public class Menu {
 			break;
 		case 5:
 
+			break;
+		case 6: 
+			exit = true;
 			break;
 		}
 	}
