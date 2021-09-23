@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Menu {
 	boolean exit = false;
 	int[] array = new int[10];
+	Scanner sc = new Scanner(System.in);
 
 	public static void main(String[] args) {
 		Menu menu = new Menu();
@@ -11,11 +12,10 @@ public class Menu {
 
 	public void runMenu() {
 		printHeader();
-		while (!exit) {
-			printMenu();
-			int choice = getInput();
-			performAction(choice);
-		}
+		printMenu();
+		int choice = getInput();
+		performAction(choice);
+
 	}
 
 	private void printMenu() {
@@ -24,7 +24,7 @@ public class Menu {
 		System.out.println("3) Calculate Maximum element in array ");
 		System.out.println("4) Calculate Sum of elements in array ");
 		System.out.println("5) Calculate Average value from elements in array ");
-		System.out.println("6) Calculate Average value from elements in array ");
+		System.out.println("6) Exit ");
 	}
 
 	private void printHeader() {
@@ -35,16 +35,15 @@ public class Menu {
 
 	private int getInput() {
 
-		Scanner kb = new Scanner(System.in);
 		int choice = -1;
-		while (choice < 1 || choice > 5) {
+		while (choice < 1 || choice > 6) {
 			try {
 				System.out.println("\nEnter your choice ");
-				choice = Integer.parseInt(kb.nextLine());
+				choice = Integer.parseInt(sc.nextLine());
 			} catch (NumberFormatException e) {
-				System.out.println("Invalid selection");
+				System.out.println("Please type a number within options");
 			}
-			if (choice < 1 || choice > 5) {
+			if (choice < 1 || choice > 6) {
 				System.out.println("Invalid selection");
 			}
 		}
@@ -52,35 +51,35 @@ public class Menu {
 	}
 
 	private void performAction(int choice) {
-
-		int elements;
-
-		Scanner sc = new Scanner(System.in);
 		int i = 0;
-		
-		System.out.println("Enter the number of elements ");
-		elements = sc.nextInt();
-
-		System.out.println("Enter the elements of the array: ");
-		while (i < elements) { // for (int i = 0; i < elements; i++) { this is for loop equivalent to used
-		i++;
-		array[i] = sc.nextInt();
-		
 		switch (choice) {
 
 		case 1:
+			int elements;
+
+			System.out.println("Enter the number of elements ");
+			elements = sc.nextInt();
+
+			System.out.println("Enter the elements of the array: ");
+			while (i < elements) { // for (int i = 0; i < elements; i++) { this is for loop equivalent to used
+				array[i] = sc.nextInt();
+				i++;
+			}
+			break;
+		case 2:
 
 			int minValue = array[i];
-			for (int i = 0; i < array.length; i++) {
-				if (array[i] > minValue) {
+			while (i < array.length) { // for (int i = 0; i < array.length; i++) {
+				if (array[i] < minValue) {
 					minValue = array[i];
 				}
 			}
 			System.out.println("Min value is " + minValue);
+
 			break;
-		case 2:
+		case 3:
 			int maxValue = array[i];
-			for (int i = 0; i < array.length; i++) {
+			while (i < array.length) { // for (int i = 0; i < array.length; i++) {
 				if (array[i] > maxValue) {
 					maxValue = array[i];
 				}
@@ -93,7 +92,7 @@ public class Menu {
 		case 5:
 
 			break;
-		case 6: 
+		case 6:
 			exit = true;
 			break;
 		}
