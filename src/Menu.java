@@ -1,9 +1,11 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Menu {
 	boolean exit = false;
-	int[] array = new int[10];
+	int[] array = new int[5];
 	Scanner sc = new Scanner(System.in);
+	int i = 0;
 
 	public static void main(String[] args) {
 		Menu menu = new Menu();
@@ -30,28 +32,39 @@ public class Menu {
 	private void printHeader() {
 		System.out.println("----------------");
 		System.out.println(" Array app menu ");
-		System.out.println("---------------- ");
+		System.out.println("----------------");
 	}
 
 	private int getInput() {
 
 		int choice = -1;
 		while (choice < 1 || choice > 6) {
+
 			try {
 				System.out.println("\nEnter your choice ");
 				choice = Integer.parseInt(sc.nextLine());
+
+				if (choice < 1 || choice > 6) {
+					System.out.println("Invalid selection");
+				}
+				if (choice == 6) {
+					System.out.println("Are you sure you want to exit? press 6 if yes");
+					choice = Integer.parseInt(sc.nextLine());
+				}
+
 			} catch (NumberFormatException e) {
-				System.out.println("Please type a number within options");
+				System.out.println("\nPlease type a number within options");
+
 			}
-			if (choice < 1 || choice > 6) {
-				System.out.println("Invalid selection");
-			}
+
 		}
+
 		return choice;
+
 	}
 
 	private void performAction(int choice) {
-		int i = 0;
+
 		switch (choice) {
 
 		case 1:
@@ -61,15 +74,19 @@ public class Menu {
 			elements = sc.nextInt();
 
 			System.out.println("Enter the elements of the array: ");
-			while (i < elements) { // for (int i = 0; i < elements; i++) { this is for loop equivalent to used
+
+			// for (int i = 0; i < array.length; i++) { note: this always asks for number of
+			// elements defined in class Menu
+			while (i < elements) {
 				array[i] = sc.nextInt();
 				i++;
 			}
+			System.out.println(Arrays.toString(array));
 			break;
 		case 2:
 
 			int minValue = array[i];
-			while (i < array.length) { // for (int i = 0; i < array.length; i++) {
+			while (i < array.length) {
 				if (array[i] < minValue) {
 					minValue = array[i];
 				}
@@ -79,7 +96,7 @@ public class Menu {
 			break;
 		case 3:
 			int maxValue = array[i];
-			while (i < array.length) { // for (int i = 0; i < array.length; i++) {
+			while (i < array.length) {
 				if (array[i] > maxValue) {
 					maxValue = array[i];
 				}
@@ -94,6 +111,8 @@ public class Menu {
 			break;
 		case 6:
 			exit = true;
+			System.out.print("Exiting...");
+
 			break;
 		}
 	}
