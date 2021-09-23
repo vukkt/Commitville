@@ -80,11 +80,12 @@ public class Menu {
 			while (i < elements) {
 				array[i] = sc.nextInt();
 				i++;
+
 			}
 			System.out.println(Arrays.toString(array));
 			break;
 		case 2:
-
+			System.out.println("is this even initialized?");
 			int minValue = array[i];
 			while (i < array.length) {
 				if (array[i] < minValue) {
@@ -115,6 +116,7 @@ public class Menu {
 
 			break;
 		}
+		return;
 	}
 
 }
