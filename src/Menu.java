@@ -83,8 +83,11 @@ public class Menu {
 
 			}
 			System.out.println(Arrays.toString(array));
+			int choice = getInput();
 			break;
+
 		case 2:
+
 			System.out.println("is this even initialized?");
 			int minValue = array[i];
 			while (i < array.length) {
@@ -115,8 +118,7 @@ public class Menu {
 			System.out.print("Exiting...");
 
 			break;
-		}
-		return;
-	}
 
+		}
+	}
 }
