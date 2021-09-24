@@ -15,9 +15,9 @@ public class Console {
 	}
 
 	public void getInput() {
-
+		choose = sc.nextInt();
 		while (i < array.length) {
-			choose = sc.nextInt();
+
 			array[i] = sc.nextInt();
 			i++;
 		}
