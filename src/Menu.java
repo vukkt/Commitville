@@ -83,7 +83,7 @@ public class Menu {
 
 			}
 			System.out.println(Arrays.toString(array));
-			int choice = getInput();
+
 			break;
 
 		case 2:
