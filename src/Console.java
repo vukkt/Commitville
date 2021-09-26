@@ -7,6 +7,7 @@ public class Console {
 	Scanner sc = new Scanner(System.in);
 	int i = 0;
 	int choose;
+	int choice;
 
 	public static void main(String[] args) {
 		Console console = new Console();
@@ -35,13 +36,67 @@ public class Console {
 		// return;
 		if (choose == 1) {
 			maxValue();
+			choice = sc.nextInt();
+			{
+				if (choice != 0) {
+					getInput();
+
+				} else {
+					exit = true;
+					System.out.println("Exiting...");
+					System.out.println("Thank You for trying out my first array application! ");
+					System.exit(0);
+
+				}
+
+				if (choose == 2) {
+					minValue();
+					choice = sc.nextInt();
+					{
+						if (choice != 0) {
+							getInput();
+
+						} else {
+							exit = true;
+							System.out.println("Exiting...");
+							System.out.println("Thank You for trying out my first array application! ");
+							System.exit(0);
+						}
+						if (choose == 3) {
+							avgValue();
+							choice = sc.nextInt();
+							{
+								if (choice != 0) {
+									getInput();
+
+								} else {
+									exit = true;
+									System.out.println("Exiting...");
+									System.out.println("Thank You for trying out my first array application! ");
+									System.exit(0);
+								}
+							}
+							if (choose == 4) {
+								sumValue();
+								choice = sc.nextInt();
+								{
+									if (choice != 0) {
+										getInput();
+
+									} else {
+										exit = true;
+										System.out.println("Exiting...");
+										System.out.println("Thank You for trying out my first array application! ");
+										System.exit(0);
+									}
+								}
+							}
+						}
+					}
+				}
+			}
 		}
-		if (choose == 2) {
-			minValue();
-		}
-		if (choose == 3) {
-			avgValue();
-		}
+
 	}
 
 	private void maxValue() {
@@ -54,6 +109,8 @@ public class Console {
 		System.out.print("Calculating maximum element from an array ");
 		System.out.print(Arrays.toString(array) + "...");
 		System.out.println("\nMaximum value is " + max);
+		System.out
+				.println("\nContinue investigating the array ? Press any number continue investigating and 0 to exit ");
 
 	}
 
@@ -67,14 +124,37 @@ public class Console {
 		System.out.print("Calculating minimum element from an array ");
 		System.out.print(Arrays.toString(array) + "...");
 		System.out.println("\nMinimum value is " + min);
-
+		System.out
+				.println("\nContinue investigating the array ? Press any number continue investigating and 0 to exit ");
 	}
 
 	private void avgValue() {
 		int avg = 0;
-		for (int i = 0; i < array.length; i++) {
+		for (int i : array) {
+			avg += i;
 
 		}
+		avg = avg / array.length;
+
+		System.out.print("Calculating average value from an array ");
+		System.out.print(Arrays.toString(array) + "...");
+		System.out.println("\nAverage value is " + avg);
+		System.out
+				.println("\nContinue investigating the array ? Press any number continue investigating and 0 to exit ");
+	}
+
+	private void sumValue() {
+		int sum = 0;
+		for (int i : array) {
+			sum += i;
+
+		}
+
+		System.out.print("Calculating sum of values from an array ");
+		System.out.print(Arrays.toString(array) + "...");
+		System.out.println("\nThe sum of values is " + sum);
+		System.out
+				.println("\nContinue investigating the array ? Press any number continue investigating and 0 to exit ");
 	}
 
 	private void runConsole() {
