@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 
 //** we implement the ActionListener interface to work with the events
+//** if we don't want for gui to implement it we should asign to the button1 and 2
 public class SimpleGui1 implements ActionListener {
 	JButton button;
 	JButton button2;
