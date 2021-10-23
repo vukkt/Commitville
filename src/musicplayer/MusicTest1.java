@@ -10,6 +10,7 @@ import javax.sound.midi.Track;
 public class MusicTest1 {
 	public void play() {
 		try {
+
 			Sequencer player = MidiSystem.getSequencer();
 			player.open();
 
@@ -35,6 +36,7 @@ public class MusicTest1 {
 
 			ex.printStackTrace();
 		}
+
 	}
 
 	public static void main(String[] args) {
