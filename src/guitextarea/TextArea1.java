@@ -23,7 +23,7 @@ public class TextArea1 implements ActionListener {
 		JFrame frame = new JFrame();
 		JPanel panel = new JPanel();
 
-		JButton button = new JButton("Just click");
+		JButton button = new JButton("Click me");
 		button.addActionListener(this);
 		text = new JTextArea(10, 20);
 		text.setLineWrap(true);
