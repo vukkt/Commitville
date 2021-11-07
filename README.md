@@ -1,2 +1,2 @@
 # Commitville
- Various exercises and homeworks
+ Various exercises and homeworks.
